@@ -5,7 +5,9 @@ function App() {
   const APP_ID = "4136e6df";
   const APP_KEY = "9c46189d68f90ac8c9264560e0231180";
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getRecipes();
+  }, []);
 
   const getRecipes = async () => {
     const response = await fetch(
