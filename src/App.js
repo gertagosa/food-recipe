@@ -18,6 +18,7 @@ function App() {
     );
     const data = await response.json();
     setRecipes(data.hits);
+    console.log(data.hits);
   };
 
   return (
@@ -28,6 +29,14 @@ function App() {
           Search
         </button>
       </form>
+
+      {recipes.map((recipe) => (
+        <Recipe
+          title={recipe.recipe.label}
+          calories={recipe.recipe.calories}
+          image={recipe.recipe.image}
+        />
+      ))}
     </div>
   );
 }
