@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import Recipe from "./Recipe";
 import "./App.css";
 
 function App() {
   const APP_ID = "4136e6df";
   const APP_KEY = "9c46189d68f90ac8c9264560e0231180";
+
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     getRecipes();
@@ -14,7 +17,7 @@ function App() {
       `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const data = await response.json();
-    console.log(data);
+    setRecipes(data.hits);
   };
 
   return (
