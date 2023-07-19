@@ -25,12 +25,12 @@ function App() {
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
-    console.log(search);
   };
 
   const getSearch = (e) => {
     e.preventDefault();
     setQuery(search);
+    setSearch("");
   };
 
   return (
@@ -40,7 +40,7 @@ function App() {
           className="search-bar"
           type="text"
           value={search}
-          onChange={setSearch}
+          onChange={updateSearch}
         />
         <button className="search-button" type="submit">
           Search
@@ -53,6 +53,7 @@ function App() {
           title={recipe.recipe.label}
           calories={recipe.recipe.calories}
           image={recipe.recipe.image}
+          ingredients={recipe.recipe.ingredients}
         />
       ))}
     </div>
